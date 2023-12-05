@@ -1,9 +1,6 @@
-def cat_nums(l):
-    try: return int(l[0] + l[-1])
-    except IndexError: return 0
-
 def part_one_mini():
-    return sum([cat_nums([c for c in ln if c.isdigit()]) for ln in open('1.txt').readlines()])
+    f = lambda l: int(l[0] + l[-1])
+    return sum(f([c for c in l if c.isdigit()]) for l in open('1.txt'))
 
 
 def concat_list_end_digits_to_int(string_list):

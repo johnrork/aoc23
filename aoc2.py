@@ -55,9 +55,9 @@ def part_two():
     cube_power = 0
 
     for rounds in games.values():
-        red_max = max([r.get('r', 0) for r in rounds])
-        green_max = max([r.get('g', 0) for r in rounds])
-        blue_max = max([r.get('b', 0) for r in rounds])
+        red_max = max((r.get('r', 0) for r in rounds))
+        green_max = max((r.get('g', 0) for r in rounds))
+        blue_max = max((r.get('b', 0) for r in rounds))
 
         cube_power += red_max * green_max * blue_max
 
@@ -66,7 +66,7 @@ def part_two():
 
 def part_two_mini():
     gms = load_games().values()
-    mx = lambda k, l: max([i.get(k, 0) for i in l])
+    mx = lambda k, l: max((i.get(k, 0) for i in l))
     return sum(mx('r', r) * mx('g', r) * mx('b', r) for r in gms)
 
 
